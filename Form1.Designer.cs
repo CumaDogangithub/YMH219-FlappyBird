@@ -29,11 +29,44 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            btnRestart = new Button();
+            gameTimer = new System.Windows.Forms.Timer(components);
+            SuspendLayout();
+            // 
+            // btnRestart
+            // 
+            btnRestart.Location = new Point(135, 240);
+            btnRestart.Name = "btnRestart";
+            btnRestart.Size = new Size(130, 32);
+            btnRestart.TabIndex = 0;
+            btnRestart.Text = "Yeniden Başlat";
+            btnRestart.UseVisualStyleBackColor = true;
+            btnRestart.Click += btnRestart_Click;
+            // 
+            // gameTimer
+            // 
+            gameTimer.Interval = 20;
+            gameTimer.Tick += gameTimer_Tick;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
+            ClientSize = new Size(400, 500);
+            Controls.Add(btnRestart);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Flappy Bird Game";
+            KeyDown += Form1_KeyDown;
+            Paint += Form1_Paint;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnRestart;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
